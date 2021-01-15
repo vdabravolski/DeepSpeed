@@ -151,7 +151,7 @@ if [ "$local_only" == "1" ]; then
     echo "Installing deepspeed"
     $PIP_SUDO pip uninstall -y deepspeed
     $PIP_SUDO $PIP_INSTALL dist/deepspeed*.whl
-    ds_report
+#     ds_report
 else
     local_path=`pwd`
     if [ -f $hostfile ]; then
