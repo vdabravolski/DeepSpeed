@@ -109,8 +109,8 @@ class OpenMPIRunner(MultiNodeRunner):
             args_list = launcher_args.split("--")
             return ["--" + arg.strip() for arg in args_list if arg != ""]
 
-        if process_launcher_args(args.launcher_args):
-            mpirun_cmd.extend(process_launcher_args(args.launcher_args))
+        if process_launcher_args(self.args.launcher_args):
+            mpirun_cmd.extend(process_launcher_args(self.args.launcher_args))
 
         export_cmd = []
         for k, v in self.exports.items():
