@@ -104,9 +104,11 @@ class OpenMPIRunner(MultiNodeRunner):
             'btl_tcp_if_include',
             'eth0'
         ]
+        
+        print(self.args.launcher_args)
 
         def process_launcher_args(launcher_args):
-            args_list = launcher_args.split("--")
+            args_list = launcher_args.strip("'").split("--")
             return ["--" + arg.strip() for arg in args_list if arg != ""]
 
         if process_launcher_args(self.args.launcher_args):
