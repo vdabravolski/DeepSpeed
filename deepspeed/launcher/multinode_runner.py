@@ -103,7 +103,7 @@ class OpenMPIRunner(MultiNodeRunner):
             '--mca',
             'btl_tcp_if_include',
             'eth0',
-            self.args.launcher_args
+            self.args.launcher_args.strip("''")
         ]
 
         export_cmd = []
