@@ -105,8 +105,6 @@ class OpenMPIRunner(MultiNodeRunner):
             'eth0'
         ]
         
-        print(self.args.launcher_args)
-
         def process_launcher_args(launcher_args):
             args_list = launcher_args.strip("'").split("--")
             return ["--" + arg.strip() for arg in args_list if arg != ""]
