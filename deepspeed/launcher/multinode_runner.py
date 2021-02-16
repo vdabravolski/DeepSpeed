@@ -90,7 +90,7 @@ class OpenMPIRunner(MultiNodeRunner):
         assert self.args.include == "" and self.args.exclude == "", 'openmpi backend does not support worker include/exclusion'
         assert self.args.num_nodes == -1 and self.args.num_gpus == -1, 'openmpi backend does not support limiting num nodes/gpus'
         total_process_count = sum(self.resource_pool.values())
-
+        
         mpirun_cmd = [
             'mpirun',
             '-n',
@@ -103,6 +103,7 @@ class OpenMPIRunner(MultiNodeRunner):
             '--mca',
             'btl_tcp_if_include',
             'eth0',
+            self.args.launcher_args
         ]
 
         export_cmd = []
